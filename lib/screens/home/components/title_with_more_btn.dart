@@ -47,7 +47,9 @@ class TitleWithCustomUnderline extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 24,
+      alignment: Alignment.center,
       child: Stack(
+        alignment: Alignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.only(left: kDefaultPadding / 4),
@@ -57,14 +59,15 @@ class TitleWithCustomUnderline extends StatelessWidget {
             ),
           ),
           Positioned(
-              bottom: 0,
-              right: 0,
-              left: 0,
-              child: Container(
-                margin: EdgeInsets.only(right: kDefaultPadding / 4),
-                height: 7,
-                color: kPrimaryColor.withOpacity(0.2),
-              ))
+            bottom: 0,
+            right: 0,
+            left: 0,
+            child: Container(
+              margin: EdgeInsets.only(left: kDefaultPadding / 4),
+              height: 7,
+              color: kPrimaryColor.withOpacity(0.2),
+            ),
+          ),
         ],
       ),
     );
