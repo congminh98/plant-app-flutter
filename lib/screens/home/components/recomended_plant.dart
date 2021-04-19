@@ -20,7 +20,47 @@ class RecomendsPlants extends StatelessWidget {
             ),
             width: size.width * 0.4,
             child: Column(
-              children: [],
+              children: [
+                Image.asset("assets/images/image_1.png"),
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    padding: EdgeInsets.all(kDefaultPadding / 2),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            offset: Offset(0, 10),
+                            blurRadius: 50,
+                            color: kPrimaryColor.withOpacity(0.23),
+                          )
+                        ]),
+                    child: Row(
+                      children: [
+                        RichText(
+                          text: TextSpan(children: [
+                            TextSpan(
+                              text: "data 1".toUpperCase(),
+                              style: Theme.of(context).textTheme.button,
+                            ),
+                            TextSpan(
+                              text: "data 2".toUpperCase(),
+                              style: TextStyle(
+                                color: kPrimaryColor.withOpacity(0.5),
+                              ),
+                            ),
+                          ]),
+                        ),
+                        Spacer(),
+                      ],
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
         ],
