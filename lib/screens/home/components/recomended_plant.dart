@@ -48,7 +48,14 @@ class RecomendsPlants extends StatelessWidget {
             title: "Samantha",
             country: "Russia",
             price: 440,
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(),
+                ),
+              );
+            },
           ),
         ],
       ),
@@ -76,8 +83,9 @@ class RecomendPlantCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(
         left: kDefaultPadding,
+        // right: kDefaultPadding / 2,
         top: kDefaultPadding / 2,
-        bottom: kDefaultPadding * 0.25,
+        bottom: kDefaultPadding * 1.5,
       ),
       width: size.width * 0.4,
       child: Column(
