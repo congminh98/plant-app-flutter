@@ -1,75 +1,60 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plant_app/constants.dart';
+import 'package:plant_app/screens/details/components/image_ans_icons.dart';
+import 'package:plant_app/screens/details/components/title_and_price.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Column(
-      children: [
-        SizedBox(
-          height: size.height * 0.8,
-          child: Row(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: kDefaultPadding * 2,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: IconButton(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: kDefaultPadding,
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          ImageAndIcons(size: size),
+          TitleAndPrice(title: "Angelica", country: "Russia", price: 440),
+          Container(
+            margin: EdgeInsets.only(top: kDefaultPadding / 2),
+            child: Row(
+              children: [
+                SizedBox(
+                  width: size.width / 2,
+                  height: 84,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Buy Now",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(kPrimaryColor),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(30),
                           ),
-                          icon: SvgPicture.asset("assets/icons/back_arrow.svg"),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
                         ),
                       ),
-                      // Spacer(),
-                      Container(
-                        height: 60,
-                        width: 62,
-                        decoration: BoxDecoration(
-                          color: Colors.red,
-                        ),
-                      )
-                    ],
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                height: size.height * 0.8,
-                width: size.width * 0.75,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(60),
-                    bottomLeft: Radius.circular(60),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(0, 10),
-                      blurRadius: 60,
-                      color: kPrimaryColor.withOpacity(0.29),
-                    )
-                  ],
-                  image: DecorationImage(
-                    alignment: Alignment.topLeft,
-                    fit: BoxFit.cover,
-                    image: AssetImage("assets/images/img.png"),
+                Expanded(
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Description",
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                 ),
-              )
-            ],
-          ),
-        ),
-      ],
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
